@@ -39,7 +39,7 @@ function Form (props) {
             </label>
             <label>Email
                 <input
-                type='text'
+                type='email'
                 name='email'
                 onChange={onChange}
                 value={values.email} 
@@ -47,7 +47,7 @@ function Form (props) {
             </label>
             <label>Password
                 <input
-                type='text'
+                type='password'
                 name='password'
                 onChange={onChange}
                 value={values.password} 
@@ -56,13 +56,13 @@ function Form (props) {
             <label>Accept Terms and Conditions
                 <input
                 type='checkbox'
-                name='terms'
+                name='accepted'
                 onChange={onChange}
-                checked={values.terms} 
+                checked={values.accepted} 
                 />
             </label>
 
-            <button>Submit</button>
+            <button id="submitBtn">Submit</button>
         </form>
     )
 }

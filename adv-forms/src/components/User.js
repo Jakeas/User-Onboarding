@@ -8,8 +8,12 @@ function User(props) {
             <h2>{details.first_name}</h2>
             <p>Email: {details.email}</p>
             <p>Password: {details.password}</p>
-            {/* <p>Agree to terms: {details.terms}</p> */}
-          
+            
+    {
+        !!details.terms && !!details.terms.length &&
+        <p>Terms Accepted: {details.terms.map((like, idx) => <span key={idx}>{like}</span>)}
+        </p>
+    }
         </div>
     )
 }

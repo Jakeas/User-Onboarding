@@ -10,7 +10,7 @@ const initialFormValues = {
   first_name: '',
   email: '',
   password: '',
-  terms: false,
+  accepted: false,
 }
 
 const initialFormErrors = {
@@ -75,7 +75,8 @@ const formSubmit = () => {
     first_name: formValues.first_name.trim(),
     email: formValues.email.trim(),
     password: formValues.password.trim(),
-    terms: formValues.terms
+    terms: ['accepted'].filter(term => formValues[term])
+
   }
   postNewUser(newUser)
 }
