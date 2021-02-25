@@ -32,9 +32,9 @@ function Form (props) {
             <label>First Name
                 <input
                 type='text'
-                first_name='first_name'
+                name='first_name'
                 onChange={onChange}
-                value={values.name}
+                value={values.first_name}
                 />
             </label>
             <label>Email
@@ -62,7 +62,7 @@ function Form (props) {
                 />
             </label>
 
-            <button disabled={disabled}>Submit</button>
+            <button>Submit</button>
         </form>
     )
 }

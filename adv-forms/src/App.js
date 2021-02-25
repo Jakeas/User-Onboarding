@@ -20,7 +20,7 @@ const initialFormErrors = {
 }
 
 const initialUsers = []
-const initialDisabled = true
+const initialDisabled = false
 
 function App() {
 const [ users, setUsers ] = useState(initialUsers)
@@ -46,7 +46,7 @@ const postNewUser = (newUser) => {
     .post("https://reqres.in/api/users", newUser)
     .then((res) => {
       console.log(res.data)
-      setUsers([res.data.data, ...users])
+      setUsers([res.data, ...users])
     })
     .catch((err) => {
       console.log(err)
@@ -59,7 +59,7 @@ const inputChange = (name, value) => {
     .reach(formSchema, name)
     .validate(value)
     .then(()=>{
-      setFormErrors({...setFormErrors.formErrors, [name]: ''})
+      setFormErrors({...formErrors, [name]: ''})
     })
     .catch((err) => {
       setFormErrors({...formErrors, [name]: err.errors[0]})
@@ -75,7 +75,7 @@ const formSubmit = () => {
     first_name: formValues.first_name.trim(),
     email: formValues.email.trim(),
     password: formValues.password.trim(),
-    terms: formValues.terms.trim()
+    terms: formValues.terms
   }
   postNewUser(newUser)
 }
@@ -103,6 +103,7 @@ useEffect(() => {
         users.map((user, i) => {
           return (
             <User key={i} details={user} />
+            
           )
         })
       }
